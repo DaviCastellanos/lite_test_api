@@ -7,17 +7,34 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using lite_test.Core;
+using lite_test.Infrastructure.CosmosDbData.Repository;
+using lite_test.Core.Interfaces;
 
 namespace lite_test_api
 {
-    public static class lite_test_api
+    public class lite_test_api
     {
-        [FunctionName("lite_test_api")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        private readonly ILogger<lite_test_api> _log;
+        private readonly IBusinessRepository _businessRepo;
+
+        public lite_test_api(ILogger<lite_test_api> log, IBusinessRepository repo)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            this._log = log ?? throw new ArgumentNullException(nameof(log));
+            this._businessRepo = repo;
+
+            if (_businessRepo == null || _log == null)
+            {
+                log.LogError("Null dependencies");
+                throw new ArgumentNullException();
+            }
+        }
+
+        [FunctionName("lite_test_api")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
 

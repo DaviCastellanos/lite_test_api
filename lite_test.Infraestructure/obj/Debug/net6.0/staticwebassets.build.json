@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "RdICLsNBN90NWouI7O3xFWsIt5EvSH7pT8E7rjeUMJ8=",
+  "Source": "lite_test.Infraestructure",
+  "BasePath": "_content/lite_test.Infraestructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj",
+      "Version": 2,
+      "Source": "lite_test.Core",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Infraestructure/lite_test.Infraestructure.csproj": {}
+  },
+  "projects": {
+    "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj",
+        "projectName": "lite_test.Core",
+        "projectPath": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj",
+        "packagesPath": "/Users/davicaste/.nuget/packages/",
+        "outputPath": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/davicaste/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Infraestructure/lite_test.Infraestructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Infraestructure/lite_test.Infraestructure.csproj",
+        "projectName": "lite_test.Infraestructure",
+        "projectPath": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Infraestructure/lite_test.Infraestructure.csproj",
+        "packagesPath": "/Users/davicaste/.nuget/packages/",
+        "outputPath": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Infraestructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/davicaste/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj": {
+                "projectPath": "/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test.Core/lite_test.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.31.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
