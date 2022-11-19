@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Serilog;
+using System.Collections.Generic;
 
 // add the FunctionsStartup assembly attribute that specifies the type name used during startup
 [assembly: FunctionsStartup(typeof(lite_test_api.Startup))]
@@ -52,11 +53,14 @@ namespace lite_test_api
             // Bind database-related bindings
             var cosmosDbConfig = configuration.GetSection("ConnectionStrings:LiteTestCosmosDB").Get<CosmosDbSettings>();
             // register CosmosDB client and data repositories
-            
-            services.AddCosmosDb(cosmosDbConfig.EndpointUrl,
-                                 cosmosDbConfig.PrimaryKey,
-                                 cosmosDbConfig.DatabaseName,
-                                 cosmosDbConfig.Containers);
+            ContainerInfo container = new ContainerInfo() { Name = "business", PartitionKey = "id" };
+
+            List<ContainerInfo> containers = new List<ContainerInfo>() { container };
+
+            services.AddCosmosDb("https://lite-test-db.documents.azure.com:443/",
+                                 "E9Vm0QMTFexAgoFvQbRSJtDnfuyBjp4YRr0f5ykmFWSNhuQVr8ke3rCcC7BxXAapUNpiKWtZgaU4ACDb4sgTgQ ==",
+                                 "liteDb",
+                                containers);
 
             services.AddScoped<IBusinessRepository, BusinessRepository>();
             
