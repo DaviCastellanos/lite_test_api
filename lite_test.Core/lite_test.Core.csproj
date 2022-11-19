@@ -10,6 +10,7 @@
     <None Remove="Newtonsoft.Json" />
     <None Remove="Ardalis.Specification" />
     <None Remove="Microsoft.Extensions.Logging" />
+    <None Remove="Properties\launchSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

@@ -1,36 +1,49 @@
 ﻿<Properties StartupConfiguration="{BCFF8CBF-6EE0-4C81-A4E0-860DA8B29848}|Default">
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.lite__test__api PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="66" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="74" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="99" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="122" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="113" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="154" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.lite__test__api PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="lite_test_api/local.settings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="lite_test.Infraestructure/Extensions/IServiceCollectionExtensions.cs">
     <Files>
-      <File FileName="lite_test_api/lite_test_api.cs" Line="66" Column="1" />
-      <File FileName="lite_test_api/host.json" Line="1" Column="2" />
-      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/CosmosDbRepository.cs" Line="85" Column="53" />
-      <File FileName="lite_test_api/local.settings.json" Line="22" Column="1" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/BusinessRepository.cs" Line="48" Column="54" />
+      <File FileName="lite_test_api/lite_test_api.cs" Line="71" Column="56" />
+      <File FileName="lite_test_api/Startup.cs" Line="55" Column="1" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/CosmosDbRepository.cs" Line="2" Column="31" />
+      <File FileName="lite_test_api/local.settings.json" Line="6" Column="20" />
+      <File FileName="lite_test.Infraestructure/AppSettings/CosmosDbSettings.cs" Line="5" Column="23" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Interfaces/IContainerContext.cs" Line="1" Column="30" />
+      <File FileName="lite_test.Core/Interfaces/Persistence/IRepository.cs" Line="7" Column="47" />
+      <File FileName="lite_test.Infraestructure/Extensions/IServiceCollectionExtensions.cs" Line="25" Column="59" />
+      <File FileName="lite_test_api/appsettings.json" Line="2" Column="1" />
+      <File FileName="lite_test.Core/Entities/BaseEntity.cs" Line="3" Column="34" />
+      <File FileName="lite_test.Core/Entities/BusinessItem.cs" Line="1" Column="30" />
+      <File FileName="lite_test.Core/Interfaces/IBusinessRepository.cs" Line="9" Column="1" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Constants/CosmosDbConfigConstants.cs" Line="1" Column="1" />
+      <File FileName="lite_test.Infraestructure/Extensions/IApplicationBuilderExtensions.cs" Line="4" Column="1" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/CosmosDbContainerFactory.cs" Line="22" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="lite_test_api" expanded="True">
-            <Node name="lite_test_api" expanded="True">
-              <Node name="local.settings.json" selected="True" />
-            </Node>
+            <Node name="lite_test_api" expanded="True" />
             <Node name="lite_test.Core" expanded="True">
-              <Node name="Interfaces" expanded="True">
-                <Node name="Persistence" expanded="True" />
-              </Node>
+              <Node name="Interfaces" expanded="True" />
             </Node>
             <Node name="lite_test.Infraestructure" expanded="True">
               <Node name="CosmosDbData" expanded="True">
+                <Node name="Interfaces" expanded="True" />
                 <Node name="Repository" expanded="True" />
               </Node>
+              <Node name="Extensions" expanded="True" />
+              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -40,4 +53,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

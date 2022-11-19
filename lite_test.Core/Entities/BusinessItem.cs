@@ -1,4 +1,4 @@
-﻿using lite_test.Core.Entities.Base;
+﻿using lite_test.Core.Entities;
 
 namespace lite_test.Core.Entities
 {

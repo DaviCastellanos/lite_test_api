@@ -52,7 +52,6 @@ namespace lite_test_api
             //services.AddScoped<IEmailService, SendGridEmailService>();
 
             // Bind database-related bindings
-            var cosmosDbConfig = configuration.GetSection("ConnectionStrings:LiteTestCosmosDB").Get<CosmosDbSettings>();
             // register CosmosDB client and data repositories
             ContainerInfo container = new ContainerInfo() { Name = "business", PartitionKey = "id" };
 

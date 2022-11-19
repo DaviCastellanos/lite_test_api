@@ -1,6 +1,5 @@
 ﻿using Ardalis.Specification;
 using lite_test.Core.Entities;
-using lite_test.Core.Entities.Base;
 using lite_test.Core.Interfaces;
 using lite_test.Infrastructure.CosmosDbData.Interfaces;
 using Microsoft.Azure.Cosmos;
@@ -25,17 +24,6 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         /// <param name="entity"></param>
         /// <returns></returns>
         public abstract string GenerateId(T entity);
-
-        /// <summary>
-        ///     Generate id for the audit record.
-        ///     All entities will share the same audit container,
-        ///     so we can define this method here with virtual default implementation.
-        ///     Audit records for different entities will use different partition key values,
-        ///     so we are not limited to the 20G per logical partition storage limit.
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public virtual string GenerateAuditId(Audit entity) => $"{entity.EntityId}:{Guid.NewGuid()}";
 
         /// <summary>
         ///     Resolve the partition key for the audit record.
@@ -116,22 +104,6 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         {
             await this._container.UpsertItemAsync<T>(item, new PartitionKey(item.Id));
         }
-
-
-        /// <summary>
-        ///     Audit a item by adding it to the audit container
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        private async Task Audit(T item)
-        {
-            Audit auditItem = new Core.Entities.Audit(item.GetType().Name,
-                                                    item.Id,
-                                                    Newtonsoft.Json.JsonConvert.SerializeObject(item));
-            auditItem.Id = GenerateAuditId(auditItem);
-            await _auditContainer.CreateItemAsync<Audit>(auditItem, ResolveAuditPartitionKey(auditItem.Id));
-        }
-
 
     }
 }

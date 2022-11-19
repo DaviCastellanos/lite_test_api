@@ -1,4 +1,4 @@
-﻿using lite_test.Core.Entities.Base;
+﻿using lite_test.Core.Entities;
 using Microsoft.Azure.Cosmos;
 
 namespace lite_test.Infrastructure.CosmosDbData.Interfaces

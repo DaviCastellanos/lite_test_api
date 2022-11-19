@@ -7,15 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Identity\Migrations\" />
     <None Remove="Microsoft.Azure.Cosmos" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <None Remove="Microsoft.IdentityModel" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Identity\Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.31.2" />
