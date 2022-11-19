@@ -11,7 +11,7 @@
     "lite_test.Infraestructure": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7169;http://localhost:5198",
+      "applicationUrl": "http://localhost:58968",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

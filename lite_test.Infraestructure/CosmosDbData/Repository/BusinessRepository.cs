@@ -14,7 +14,7 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         /// <summary>
         ///     CosmosDB container name
         /// </summary>
-        public override string ContainerName { get; } = "Business";
+        public override string ContainerName { get; } = "business";
 
         /// <summary>
         ///     Generate Id.
@@ -52,18 +52,13 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
 
         // Use Cosmos DB Parameterized Query to avoid SQL Injection.
         // Get by Title is also an example of cross partition read, where Get by Category will be single partition read
-        public async Task<IEnumerable<BusinessItem>> GetItemsAsyncByTitle(string title)
+        public async Task<IEnumerable<BusinessItem>> GetBusinessAsyncByNIT(string NIT)
         {
-            List<BusinessItem> results = new List<BusinessItem>();
-            string query = @$"SELECT c.Name FROM c WHERE c.Title = @Title";
+            string query = $"SELECT * FROM c WHERE c.NIT = '{NIT}'";
 
-            QueryDefinition queryDefinition = new QueryDefinition(query)
-                                                    .WithParameter("@Title", title);
-            string queryString = queryDefinition.QueryText;
+            IEnumerable<BusinessItem> entities = await this.GetItemsAsync(query);
 
-            IEnumerable<BusinessItem> entities = await this.GetItemsAsync(queryString);
-
-            return results;
+            return entities;
         }
     }
 }

@@ -1,11 +1,16 @@
 ﻿{
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            }
-        }
+  "version": "2.0",
+  "http": {
+    // Defines the default route prefix that applies to all routes. Default is 'api'.
+    // Use an empty string to remove the prefix.
+    "routePrefix": ""
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
     }
+  }
 }
