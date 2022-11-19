@@ -34,24 +34,27 @@ namespace lite_test_api
             }
         }
 
-        [FunctionName("lite_test_api")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetBusiness")] HttpRequest req)
+        [FunctionName("GetAllBusiness")]
+        public async Task<IActionResult> GetAllBusiness(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetAllBusiness")] HttpRequest req)
         {
-            _log.LogInformation("C# HTTP trigger function processed a request.");
+            try
+            {
+                var response = await _businessRepo.GetAllBusiness();
 
-            string name = req.Query["name"];
+                if (!response.Any())
+                    return new NotFoundObjectResult("Empty DB or container");
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+                return new OkObjectResult(response);
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            }
+            catch (Exception e)
+            {
+                _log.LogError(e.Message);
+                return new BadRequestObjectResult(req);
+            }
         }
+
 
         [FunctionName("AddBusiness")]
         public async Task<IActionResult> AddBusiness(

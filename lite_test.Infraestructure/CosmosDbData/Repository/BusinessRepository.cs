@@ -53,5 +53,15 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
 
             return entities;
         }
+
+        // Use Cosmos DB Parameterized Query to avoid SQL Injection.
+        // Get by Title is also an example of cross partition read, where Get by Category will be single partition read
+        public async Task<IEnumerable<BusinessItem>> GetAllBusiness()
+        {
+
+            IEnumerable<BusinessItem> entities = await this.GetItemsAsyncLinq();
+
+            return entities;
+        }
     }
 }

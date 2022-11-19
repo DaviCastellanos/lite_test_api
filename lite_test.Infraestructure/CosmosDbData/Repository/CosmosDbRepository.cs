@@ -2,10 +2,12 @@
 using lite_test.Core.Entities;
 using lite_test.Core.Interfaces;
 using lite_test.Infrastructure.CosmosDbData.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -95,6 +97,24 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
                 FeedResponse<T> response = await resultSetIterator.ReadNextAsync();
 
                 results.AddRange(response.ToList());
+            }
+
+            return results;
+        }
+
+        public async Task<IEnumerable<T>> GetItemsAsyncLinq()
+        {
+            //<T> resultSetIterator = _container.GetItemLinqQueryable<T>(true);
+            List<T> results = new List<T>();
+
+            using (FeedIterator<T> setIterator = _container.GetItemLinqQueryable<T>().ToFeedIterator())
+            {
+                while (setIterator.HasMoreResults)
+                {
+                    FeedResponse<T> response = await setIterator.ReadNextAsync();
+
+                    results.AddRange(response.ToList());
+                }
             }
 
             return results;
