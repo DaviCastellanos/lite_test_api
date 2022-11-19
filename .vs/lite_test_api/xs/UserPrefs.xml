@@ -3,31 +3,28 @@
   <MonoDevelop.Ide.ItemProperties.lite__test__api PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="74" column="1" />
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="99" column="1" />
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="122" column="1" />
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="113" column="1" />
-      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="154" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="77" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="102" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="116" column="1" />
+      <Breakpoint file="/Users/davicaste/Desktop/Proyectos/lite-test/lite_test_api/lite_test_api/lite_test_api.cs" relfile="lite_test_api/lite_test_api.cs" line="52" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="lite_test.Infraestructure/Extensions/IServiceCollectionExtensions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="lite_test.Infraestructure/CosmosDbData/Repository/CosmosDbRepository.cs">
     <Files>
-      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/BusinessRepository.cs" Line="48" Column="54" />
-      <File FileName="lite_test_api/lite_test_api.cs" Line="71" Column="56" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/BusinessRepository.cs" Line="64" Column="29" />
+      <File FileName="lite_test_api/lite_test_api.cs" Line="43" Column="56" />
       <File FileName="lite_test_api/Startup.cs" Line="55" Column="1" />
-      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/CosmosDbRepository.cs" Line="2" Column="31" />
+      <File FileName="lite_test.Infraestructure/CosmosDbData/Repository/CosmosDbRepository.cs" Line="92" Column="1" />
       <File FileName="lite_test_api/local.settings.json" Line="6" Column="20" />
-      <File FileName="lite_test.Infraestructure/AppSettings/CosmosDbSettings.cs" Line="5" Column="23" />
       <File FileName="lite_test.Infraestructure/CosmosDbData/Interfaces/IContainerContext.cs" Line="1" Column="30" />
-      <File FileName="lite_test.Core/Interfaces/Persistence/IRepository.cs" Line="7" Column="47" />
       <File FileName="lite_test.Infraestructure/Extensions/IServiceCollectionExtensions.cs" Line="25" Column="59" />
       <File FileName="lite_test_api/appsettings.json" Line="2" Column="1" />
       <File FileName="lite_test.Core/Entities/BaseEntity.cs" Line="3" Column="34" />
       <File FileName="lite_test.Core/Entities/BusinessItem.cs" Line="1" Column="30" />
       <File FileName="lite_test.Core/Interfaces/IBusinessRepository.cs" Line="9" Column="1" />
-      <File FileName="lite_test.Infraestructure/CosmosDbData/Constants/CosmosDbConfigConstants.cs" Line="1" Column="1" />
       <File FileName="lite_test.Infraestructure/Extensions/IApplicationBuilderExtensions.cs" Line="4" Column="1" />
       <File FileName="lite_test.Infraestructure/CosmosDbData/CosmosDbContainerFactory.cs" Line="22" Column="23" />
+      <File FileName="lite_test.Core/Interfaces/IRepository.cs" Line="28" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -42,8 +39,6 @@
                 <Node name="Interfaces" expanded="True" />
                 <Node name="Repository" expanded="True" />
               </Node>
-              <Node name="Extensions" expanded="True" />
-              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
