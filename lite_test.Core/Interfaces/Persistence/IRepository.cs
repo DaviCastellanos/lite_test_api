@@ -34,7 +34,7 @@ namespace lite_test.Core.Interfaces
         /// </summary>
         /// <param name="id, item"></param>
         /// <returns></returns>
-        Task UpdateItemAsync(string id, T item);
+        Task UpdateItemAsync(T item);
 
         /// <summary>
         ///     Deletes an item

@@ -13,6 +13,7 @@ using lite_test.Core.Interfaces;
 using lite_test.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace lite_test_api
 {
@@ -52,27 +53,27 @@ namespace lite_test_api
             return new OkObjectResult(responseMessage);
         }
 
-        [FunctionName("SaveBusiness")]
-        public async Task<IActionResult> SaveBusiness(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "SaveBusiness")] HttpRequest req)
+        [FunctionName("AddBusiness")]
+        public async Task<IActionResult> AddBusiness(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "AddBusiness")] HttpRequest req)
         {
-            BusinessItem item = new BusinessItem();
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-            item.Name = data ?? data?.Name;
-            item.NIT = data ?? data.NIT;
-            item.Phone = data ?? data.Phone;
-            item.Address = data ?? data.Address;
-
             try
             {
+                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+                BusinessItem item = JsonConvert.DeserializeObject<BusinessItem>(requestBody);
+
+                var response = await _businessRepo.GetBusinessAsyncByNIT(item.NIT);
+
+                if (response.Any())
+                    return new BadRequestObjectResult("NIT must be unique");
+             
+
                 await _businessRepo.AddItemAsync(item);
             }
             catch (Exception e)
             {
                 _log.LogError(e.Message);
+                return new BadRequestObjectResult(req);
             }
 
             return new OkObjectResult("ok");
@@ -103,7 +104,7 @@ namespace lite_test_api
 
         [FunctionName("DeleteBusinessByNIT")]
         public async Task<IActionResult> DeleteBusinessByNIT(
-           [HttpTrigger(AuthorizationLevel.Function, "get", Route = "DeleteBusinessByNIT")] HttpRequest req)
+           [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "DeleteBusinessByNIT")] HttpRequest req)
         {
 
             string NIT = req.Query["NIT"];
@@ -112,7 +113,42 @@ namespace lite_test_api
             {
                 var response = await _businessRepo.GetBusinessAsyncByNIT(NIT);
 
+                if (!response.Any())
+                    return new NotFoundObjectResult(NIT);
+
                 await _businessRepo.DeleteItemAsync(response.First().Id);
+            }
+            catch (Exception e)
+            {
+                _log.LogError(e.Message);
+                return new BadRequestObjectResult(e);
+            }
+
+            return new OkObjectResult("ok");
+        }
+
+        [FunctionName("UpdateBusinessByNIT")]
+        public async Task<IActionResult> UpdateBusinessByNIT(
+           [HttpTrigger(AuthorizationLevel.Function, "put", Route = "UpdateBusinessByNIT")] HttpRequest req)
+        {
+
+            string NIT = req.Query["NIT"];
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            string[] args = requestBody.Split('=');
+
+            try
+            {
+                var response = await _businessRepo.GetBusinessAsyncByNIT(NIT);
+
+                if (!response.Any())
+                    return new NotFoundObjectResult(NIT);
+
+                BusinessItem item = response.First();
+
+                item.GetType().GetProperty(args[0]).SetValue(item, args[1], null);
+
+                await _businessRepo.UpdateItemAsync(item);
             }
             catch (Exception e)
             {

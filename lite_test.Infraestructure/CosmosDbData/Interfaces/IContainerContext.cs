@@ -11,6 +11,5 @@ namespace lite_test.Infrastructure.CosmosDbData.Interfaces
     {
         string ContainerName { get; }
         string GenerateId(T entity);
-        PartitionKey ResolvePartitionKey(string entityId);
     }
 }

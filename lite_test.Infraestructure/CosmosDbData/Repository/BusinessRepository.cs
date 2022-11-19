@@ -24,13 +24,6 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         /// <returns></returns>
         public override string GenerateId(BusinessItem entity) => $"{entity.Id}:{Guid.NewGuid()}";
 
-        /// <summary>
-        ///     Returns the value of the partition key
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <returns></returns>
-        public override PartitionKey ResolvePartitionKey(string entityId) => new PartitionKey(entityId.Split(':')[0]);
-
         public BusinessRepository(ICosmosDbContainerFactory factory) : base(factory)
         { }
 

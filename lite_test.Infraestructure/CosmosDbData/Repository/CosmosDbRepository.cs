@@ -27,13 +27,6 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         public abstract string GenerateId(T entity);
 
         /// <summary>
-        ///     Resolve the partition key
-        /// </summary>
-        /// <param name="entityId"></param>
-        /// <returns></returns>
-        public abstract PartitionKey ResolvePartitionKey(string entityId);
-
-        /// <summary>
         ///     Generate id for the audit record.
         ///     All entities will share the same audit container,
         ///     so we can define this method here with virtual default implementation.
@@ -79,19 +72,19 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
         public async Task AddItemAsync(T item)
         {
             item.Id = GenerateId(item);
-            await _container.CreateItemAsync<T>(item, ResolvePartitionKey(item.Id));
+            await _container.CreateItemAsync<T>(item, new PartitionKey(item.Id));
         }
 
         public async Task DeleteItemAsync(string id)
         {
-            await this._container.DeleteItemAsync<T>(id, ResolvePartitionKey(id));
+            await this._container.DeleteItemAsync<T>(id, new PartitionKey(id));
         }
 
         public async Task<T> GetItemAsync(string id)
         {
             try
             {
-                ItemResponse<T> response = await _container.ReadItemAsync<T>(id, ResolvePartitionKey(id));
+                ItemResponse<T> response = await _container.ReadItemAsync<T>(id, new PartitionKey(id));
                 return response.Resource;
             }
             catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -119,12 +112,9 @@ namespace lite_test.Infrastructure.CosmosDbData.Repository
             return results;
         }
 
-        public async Task UpdateItemAsync(string id, T item)
+        public async Task UpdateItemAsync(T item)
         {
-            // Audit
-            await Audit(item);
-            // Update
-            await this._container.UpsertItemAsync<T>(item, ResolvePartitionKey(id));
+            await this._container.UpsertItemAsync<T>(item, new PartitionKey(item.Id));
         }
 
 

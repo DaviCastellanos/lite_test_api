@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using Serilog;
 using System.Collections.Generic;
+using System;
 
 // add the FunctionsStartup assembly attribute that specifies the type name used during startup
 [assembly: FunctionsStartup(typeof(lite_test_api.Startup))]
@@ -58,8 +59,8 @@ namespace lite_test_api
             List<ContainerInfo> containers = new List<ContainerInfo>() { container };
 
             services.AddCosmosDb("https://lite-test-db.documents.azure.com:443/",
-                                 "E9Vm0QMTFexAgoFvQbRSJtDnfuyBjp4YRr0f5ykmFWSNhuQVr8ke3rCcC7BxXAapUNpiKWtZgaU4ACDb4sgTgQ ==",
-                                 "liteDb",
+                                 Environment.GetEnvironmentVariable("PrimaryKey"),
+                                 "liteDB",
                                 containers);
 
             services.AddScoped<IBusinessRepository, BusinessRepository>();
